@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM</title>
+    </head>
+    <body>
+        <div id='root'>
+            
+        </div>
+        <script>
+            const rootHandle=document.getElementById('root')
+            const ulTag=document.createElement('ul')
+            const fruits=['mango','water melon','apple','orange','banana']
+            fruits.sort().reverse().forEach(function(fruit)
+            {
+                const liTag=document.createElement('li')
+                liTag.textContent=fruit
+                ulTag.appendChild(liTag)
+            })
+            rootHandle.appendChild(ulTag)
+            console.log(ulTag)
+        </script>
+    </body>
+</html>
+
+
+<!--
+    <!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM</title>
+    </head>
+    <body>
+        <div id='root'>
+            
+        </div>
+        <script>
+            const rootHandle=document.getElementById('root')
+            const ulTag=document.createElement('ul')
+            const fruits=['mango','water melon','apple','orange','banana']
+
+            function liMaker(text)              // by creating the liMaker function wherever you                                            want you can use to create li tag
+            {
+                const liTag=document.createElement('li')   
+                liTag.textContent=text
+                ulTag.appendChild(liTag)
+            }
+            fruits.sort().reverse().forEach(function(fruit)
+            {
+                liMaker(text)
+            })
+            rootHandle.appendChild(ulTag)
+            console.log(ulTag)
+        </script>
+    </body>
+</html>
+-->
+
+
+
+
+
+
+
+

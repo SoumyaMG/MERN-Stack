@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>List Users</title>
+    </head>
+    <body>
+        <div id="list">
+
+        </div>
+        <script>
+         /*  //Using xhr Object
+            const xhr=new XMLHttpRequest()  //This object is only availabe to browser level,not present in node js
+            xhr.open('GET','https://jsonplaceholder.typicode.com/users')
+            xhr.send()
+            xhr.onload=function()
+            {
+                const users=JSON.parse(xhr.responseText)
+                console.log(typeof users)       // object
+
+                const divHandle=document.getElementById('list')
+                const ulTag=document.createElement('ul')
+                users.forEach(function(user)
+                {
+                    const liTag=document.createElement('li')
+                    liTag.textContent=user.name
+                    ulTag.appendChild(liTag)
+                })
+                divHandle.appendChild(ulTag)
+
+            }*/
+
+            //using fetch API
+            fetch('https://jsonplaceholder.typicode.com/users')
+            .then(function(response)
+            {
+                return response.json()
+            })
+            .then(function(user)
+            {
+                const divHandle=document.getElementById('list')
+                const ulTag=document.createElement('ul')
+                user.forEach(function(u)
+                {
+                    const liTag=document.createElement('li')
+                    liTag.textContent=u.name
+                    ulTag.appendChild(liTag)
+                })
+                divHandle.appendChild(ulTag)
+            })
+            
+        </script>
+    </body>
+</html>

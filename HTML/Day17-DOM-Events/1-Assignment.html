@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>char word count</title>
+    </head>
+    <body>
+        <div id="root">
+            <h1>Word Count</h1>
+            <textarea id="text"></textarea>
+            <p id="show"></p>
+        </div>
+        <script>
+            const textHandle=document.getElementById('text')
+            const showHandle=document.getElementById('show')
+
+            textHandle.addEventListener('keyup',function()
+            {
+                let str=textHandle.value
+                let countChar=str.length
+                let str1=str.split(' ')
+                let countWord=str1.length
+                showHandle.innerHTML='you have written '+countWord+' words and '+countChar+' charecters'
+            })
+        </script>
+    </body>
+</html>

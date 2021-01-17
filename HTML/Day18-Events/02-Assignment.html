@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>SelectTag</title>
+    </head>
+    <body>
+            <label> Enter Text </label>
+            <input id="textbox" type="text" /> 
+            <select id="selectMe"> 
+                <option value=""> Select Tag </option>
+                <option value="h1"> h1 </option>
+                <option value="h2"> h2 </option>
+                <option value="p"> p </option>
+                <option value="b"> b </option>
+                <option value="em"> em </option>
+            </select><br /><br />
+            <button id="btn"> Generate </button> 
+            <div id="output">
+            </div>
+
+            <script>
+             
+              const textHandle=document.getElementById('textbox')
+              const outputHandle=document.getElementById('output')
+              btn.addEventListener('click',function()
+              {
+                outputHandle.innerHTML=''
+                const tag=document.getElementById('selectMe')
+                const val=tag.options[tag.selectedIndex].value
+                const tag1=document.createElement(val)
+                tag1.textContent=textHandle.value
+                outputHandle.appendChild(tag1)
+                
+              })
+            </script>
+
+    </body> 
+</html>

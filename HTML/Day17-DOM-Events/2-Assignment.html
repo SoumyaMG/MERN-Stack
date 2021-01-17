@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>F-C Convertor</title>
+    </head>
+    <body>
+        <div id="root">
+            <h1>Temperature Convertor</h1>
+            <pre><h2>Fahrenheit        Celsius</h2></pre>
+            <pre><input type='text' id="fah"/> = <input type='text' id="cel"/></pre>
+        </div>
+        <script>
+            const fahHandle=document.getElementById('fah')
+            const celHandle=document.getElementById('cel')
+            fahHandle.addEventListener('keyup',function()
+            {
+                fahrenheit=fahHandle.value
+                let celsius=((fahrenheit-32)*(5/9))
+                celHandle.value=celsius
+            })
+        </script>
+    </body>
+</html>

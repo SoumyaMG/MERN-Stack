@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>List Users</title>
+    </head>
+    <body>
+        <div id="list">
+
+        </div>
+        <script>
+            //AJAX-Asychronous Javascript and XML
+            const xhr=new XMLHttpRequest()  //This object is only availabe to browser level,not present in node js
+            xhr.open('GET','https://jsonplaceholder.typicode.com/users')
+            xhr.send()
+            //this function is call back functions-gets called, when the data successfully comes back from the server
+            xhr.onload=function()
+            {
+                //console.log('data from the server',xhr.responseText)      //display the info fetched from the server
+                //console.log('type of',typeof xhr.responseText)    //String
+                
+                //converting from json(JavaScript Object Notation) to objects
+                const users=JSON.parse(xhr.responseText)
+                console.log(typeof users)       // object
+
+                const divHandle=document.getElementById('list')
+                const ulTag=document.createElement('ul')
+                users.forEach(function(user)
+                {
+                    const liTag=document.createElement('li')
+                    liTag.textContent=user.name
+                    const btn=document.createElement('button')
+                    btn.textContent='Remove'
+                    liTag.appendChild(btn)
+                    ulTag.appendChild(liTag)
+
+                    btn.addEventListener('click',function()
+                    {
+                        const confirmRemove=confirm('Are you Sure?')
+                        if(confirmRemove)
+                        { 
+                            ulTag.removeChild(liTag)  
+                            
+                        }
+                    })
+                })
+                divHandle.appendChild(ulTag)
+
+            }
+        </script>
+    </body>
+</html>

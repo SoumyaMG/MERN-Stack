@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>events</title>
+    </head>
+    <body>
+        <div id="root">
+            <h1 id="title">Soumya Gidd</h1>
+            <button id="btn">determine length</button>
+        </div>
+        
+        <script>
+            const rootHandle=document.getElementById('root')
+            const titleHandle=document.getElementById('title')
+            const btnHandle=document.getElementById('btn')
+
+            btnHandle.addEventListener('click',function(){
+                titleHandle.innerHTML=titleHandle.innerHTML.length
+            })
+        </script>
+    </body>
+</html>

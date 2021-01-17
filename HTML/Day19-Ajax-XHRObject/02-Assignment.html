@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Filter</title>
+    </head>
+    <body>
+        <h2>List of Users-<span id="span1"></span></h2>
+        <input id="search" type="text"/>
+        <div id="divId">
+
+        </div>
+        <script>
+            const xhr=new XMLHttpRequest()
+            xhr.open('GET','https://jsonplaceholder.typicode.com/users')
+            xhr.send()
+            xhr.onload=function()
+            {
+                const users=JSON.parse(xhr.responseText)
+
+                const divHandle=document.getElementById('divId')
+                const searchHandle=document.getElementById('search')
+                const spanHandle=document.getElementById('span1')
+                const ulTag=document.createElement('ul')
+                function displayList(users)
+                {
+                    ulTag.textContent=''
+                    function display()
+                    {
+                        spanHandle.innerHTML=users.length
+                    }
+                    display()
+
+                    users.forEach(function(n)
+                    {
+                        const liTag=document.createElement('li')
+                        liTag.textContent=n.name
+                        ulTag.appendChild(liTag)
+                    })
+                    divHandle.appendChild(ulTag)
+
+                }
+                displayList(users)
+            searchHandle.addEventListener('keyup',function()
+            {
+                const filterUser=users.filter(function(n1)
+                {
+                    return n1.name.toLowerCase().includes(searchHandle.value)
+                })
+                displayList(filterUser)
+            })
+            }
+        </script>
+    </body>
+</html>

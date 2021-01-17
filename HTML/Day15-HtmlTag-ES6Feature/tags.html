@@ -1,0 +1,218 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>List of HTML Tags</title>
+        <!-- links to css files  -->
+        <!-- meta information -->
+        <!-- Search Engine Optimization -->
+        <!-- <meta name="keywords" content="html introduction, html tags" /> -->
+        <!-- <meta name="description" content="content goes here" /> -->
+    </head>
+    <body>
+        <!-- presentation / textual -->
+        <!-- header -->
+        <h1>H1 Tag</h1>
+        <h2>h2 Tag</h2>
+        <h3>h3 Tag</h3>
+        <!-- <h4>h4 Tag</h4>
+        <h5>h5 Tag</h5>
+        <h6>h6 Tag</h6> -->
+        <p>paragraph tag</p>
+
+        <!-- list tags -->
+        <!-- ordered list -->
+        <ol> 
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+        </ol>
+
+        <!-- unordered list -->
+        <ul>
+            <li>list 1</li>
+            <li>list 2</li>
+            <li>list 3</li>
+        </ul>
+
+        <!-- table -->
+        <table border="1">
+            <thead>
+                <tr>
+                    <th> sl no </th>
+                    <th> name </th>
+                    <th> gender </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> 1 </td>
+                    <td> Raju </td> 
+                    <td> M </td> 
+                </tr>
+                <tr>
+                    <td> 2 </td>
+                    <td> Nagarj </td>
+                    <td> M </td>
+                </tr>
+                <tr>
+                    <td> 3 </td>
+                    <td> Priyanka </td>
+                    <td> F </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- linking -->
+        <!-- anchor -->
+        <!--
+             a = tag
+             href = attribute 
+        -->
+        <a href="./home.html">visit homepage</a>
+        <a href="./home.html" target="_blank">visit homepage in new tab</a>
+        <!-- link to external website -->
+        <a href="http://www.google.com" target="_blank">visit google</a>
+
+        <h3>Forms</h3>
+
+        <form>
+            <label>
+                text field 
+                <input type="text" />
+            </label> <br/>
+
+            <label>
+                password field
+                <input type="password" />
+            </label> <br/>
+
+            <label>
+                number field
+                <input type="number" min="0"/>
+            </label> <br />
+
+            <label>
+                email field
+                <input type="email"  />
+            </label> <br />
+
+            <label>
+                Date field
+                <input type="date" />
+            </label> <br />
+
+            <label>
+                text area 
+                <textarea></textarea>
+            </label> <br />
+
+            <label>
+                checkbox 
+                <input type="checkbox" />
+            </label> <br />
+
+            <label>
+                checkbox checked default 
+                <input type="checkbox" checked />
+            </label> <br />
+
+            <label>
+                radio button
+            </label> 
+            <label>
+                <input type="radio" name="gender" /> male
+            </label>
+            <label>
+                <input type="radio" name="gender"  /> female
+            </label>
+            <br />
+
+
+            <label>
+                select tag 
+                <select>
+                    <option value="">select</option>
+                    <option value="1">option 1</option>
+                    <option value="2">option 2</option>
+                    <option value="3">option 3</option>
+                </select>
+            </label> <br />
+
+            <label>
+                multi select tag
+                <select multiple>
+                    <option value="">select</option>
+                    <option value="1">option 1</option>
+                    <option value="2">option 2</option>
+                    <option value="3">option 3</option>
+                </select>
+            </label> <br />
+
+            <label>
+                file field 
+                <input type="file" />
+            </label> <br />
+
+            <label>
+                submit 
+                <input type="submit" />
+            </label> <br />
+
+            <label>
+                reset
+                <input type="reset" />
+            </label> <br />
+        </form>
+
+
+        <!-- multi media tags -->
+        <img src="./images/nodejs.png" alt="node js logo" />
+
+        <audio controls>
+            <source src="./audio/raghu.mp3" type="audio/mpeg">
+        </audio>
+
+        <video src="./videos/react.webm" controls></video>
+
+        <!-- division tags -->
+        <div>
+            <h2> Welcome to the page</h2>
+            <p> some text goes here </p>
+        </div>
+
+        <div>
+            <h2>services we offer</h2>
+            <ul>
+                <li>Hosting</li>
+                <li> App Development</li>
+                <li> Maintenance </li>
+            </ul>
+        </div>
+
+        <!-- text decoration -->
+        <ul>
+            <li><em>decor 1</em></li>
+            <li><s>task is complete</s></li>
+            <li><u>list 3</u></li>
+            <li><b>this is bold tag</b></li> <!--make appear bold -->
+            <li><strong>this is strong tag</strong></li> <!--show something really important -->
+            <li><small>this is a small tag</small></li>
+        </ul>
+
+        <blockquote>
+            Now is the time for all good people
+            <cite>Dr Anonymous</cite>
+        </blockquote>
+
+        <h2>Hello <span>World</span></h2>
+
+        <button>click me</button>
+
+        <!-- javascript goes inside a script tag -->
+        <script>
+            console.log('hello world')
+        </script>
+
+
+    </body>
+</html>

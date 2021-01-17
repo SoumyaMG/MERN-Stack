@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Social </title>
+</head>
+
+<body>
+    <!-- <ul>
+            <li><a href="http://www.facebook.com">facebook</a></li>
+        </ul> -->
+
+    <div id="root">
+
+    </div>
+
+    <script src="https://unpkg.com/react@16.7.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16.7.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+
+        const socialLinks = [
+            { id: 1, name: 'facebook', url: 'http://www.facebook.com' },
+            { id: 2, name: 'google', url: 'http://www.google.com' },
+            { id: 3, name: 'instagram', url: 'http://www.instagram.com' }
+        ]
+
+        const ele = (
+            <table border="1">
+                <thead>
+                <tr>
+                        <th>name</th>
+                </tr>
+                </thead>
+                <tbody>
+                { socialLinks.map(function(link){
+
+                    return <tr><td><a href={link.url} target="_blank">{ link.name} </a></td></tr>
+                })}
+                </tbody>
+            </table>
+        )
+        
+        ReactDOM.render(ele, rootHandle )
+ 
+
+    </script>
+</body>
+
+</html>

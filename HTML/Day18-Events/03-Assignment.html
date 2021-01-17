@@ -1,0 +1,53 @@
+<html>
+    <head id="head1">
+        <title>Table Creation</title>
+    </head>
+    <body>
+        <div id="mount">
+        </div>
+        <script>
+            const mountain=[
+            {Name:'Kilimanjaro',Height:5895,Place:'Tanzania'},
+            {Name:'Everest',Height:8848,Place:'Nepal'},
+            {Name:'Mount Fuzi',Height:3776,Place:'Japan'},
+            {Name:'Mount Blanc',Height:4808,Place:'France'}
+            ]
+
+            const divHandle=document.getElementById('mount')
+            const tableTag=document.createElement('table')
+            tableTag.setAttribute('border',1)
+            const theadTag=document.createElement('thead')
+            const tbodyTag=document.createElement('tbody')
+            const trTag=document.createElement('tr')
+           
+            const keys=Object.keys(mountain[0])
+            keys.forEach(function(n)
+            {
+                const thTag=document.createElement('th')
+                thTag.textContent=n
+                trTag.appendChild(thTag)
+            })
+            theadTag.appendChild(trTag)
+            tableTag.appendChild(theadTag)
+
+            mountain.forEach(function(n1)
+            {
+                const tr1Tag=document.createElement('tr')
+                const value=Object.values(n1)
+                value.forEach(function(n2)
+                {
+                    const tdTag=document.createElement('td')
+                    tdTag.textContent=n2
+                    if(typeof(n2)=='number')
+                    {
+                        tdTag.style.backgroundColor='yellow'
+                    }
+                    tr1Tag.appendChild(tdTag)
+                })
+                tbodyTag.appendChild(tr1Tag)
+            })
+            tableTag.appendChild(tbodyTag)
+            divHandle.appendChild(tableTag)
+        </script>
+    </body>
+</html>

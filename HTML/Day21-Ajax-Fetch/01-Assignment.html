@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Location Pointer</title>
+        <link href="style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div>
+                <button id="btn">Get My Location</button>
+                <p id='err'>Your location is:</p> 
+                <p>latitude:<span id="span1"></span></p>
+                <p>longitude:<span id="span2"></span></p>
+                <p>Temperature is:<span id="span3"></span></p>
+                <img id="img"/> 
+        </div>
+
+        <script>
+
+            const btnHandle=document.getElementById('btn')
+            const span1Handle=document.getElementById('span1')
+            const span2Handle=document.getElementById('span2')
+            const span3Handle=document.getElementById('span3')
+            const errHandle=document.getElementById('err')
+            const imgHandle=document.getElementById('img')
+            var lat 
+            var log
+            btnHandle.addEventListener('click',function()
+            {                  
+                    navigator.geolocation.getCurrentPosition(function (n)
+                    {   
+                        lat=n.coords.latitude
+                        log=n.coords.longitude
+                        span1Handle.innerHTML=lat
+                        span2Handle.innerHTML=log
+                        fetch(`https://api.darksky.net/forecast/d0d7de2cab21f167e7fb44998d39d0ff/${lat},${log}`)
+                         .then(function(response)
+                        {
+                            return response.json()
+                        })
+                        .then(function(temp){
+                             span3Handle.innerHTML=temp.currently.temperature
+                        })
+
+                        fetch(`http://www.mapquestapi.com/geocoding/v1/reverse?key=4FSWMvAYrANLAYE4086xcYKVZpI4wp47&location=${lat},${log}&includeRoadMetadata=true&includeNearestIntersection=true`)
+                        .then(function(response)
+                        {
+                            return response.json()
+                        })
+                        .then(function(map){
+                            imgHandle.setAttribute('src', map.results[0].locations[0].mapUrl)
+                        })
+                    })
+            }) 
+        </script>
+    </body>
+</html>
+

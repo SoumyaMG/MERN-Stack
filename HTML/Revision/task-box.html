@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Task Manager </title>
+</head>
+<body>
+    <div id="root">
+        <h2>Task Box -<span id="count"></span></h2>
+        <ul id="tasks">
+        </ul>
+        <form id="myForm">
+            <label>
+                Name
+                <input type="text" id="name" />
+            </label>
+            <input type="submit" />
+        </form>
+
+        <button id="resetBtn">Reset</button>
+    </div>
+    <script>
+        let tasks
+        if(localStorage.getItem('tasksDB')) { // check if the tasks is there in the local storage. if yes then parse the value and set it to the tasks variable
+            tasks = JSON.parse(localStorage.getItem('tasksDB'))
+        } else { // set the value of tasks to be empty array
+            tasks = []
+        }
+
+        const myFormHandle = document.getElementById('myForm')
+        const nameHandle = document.getElementById('name')
+        const tasksHandle = document.getElementById('tasks')
+        const resetBtnHandle = document.getElementById('resetBtn')
+        const countHandle=document.getElementById('count')
+
+        function makeLi(task) {
+            const li = document.createElement('li')
+            li.textContent = task.title
+            tasksHandle.appendChild(li)
+   
+        }
+
+        tasks.forEach(function(task){
+            makeLi(task)
+        })
+
+
+        myFormHandle.addEventListener('submit', function (e) {
+            e.preventDefault()
+            const name = nameHandle.value 
+            const task = { title: name }
+            makeLi(task)
+            tasks.push(task)
+            localStorage.setItem('tasksDB', JSON.stringify(tasks))
+            console.log(localStorage.getItem('tasksDB'))
+            myFormHandle.reset()
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Determine gender
+        </title>
+    </head>
+    <body>
+        <h1>Hey, Please enter your name.. We will tell your Gender !!!</h1>
+        <form id="sub">
+            <lable>
+                Name:
+                <input type="text" id="name"/>
+            </lable>
+            <p id="msg"></p> <br/>
+            <lable>
+                <input type="submit" >
+            </lable>
+        </form>
+        <script>
+
+            const nameHandle=document.getElementById('name')
+            const msgHandle=document.getElementById('msg')
+            const subHandle=document.getElementById('sub')
+
+            subHandle.addEventListener('submit',function(e)
+            {
+                e.preventDefault()
+                let name=nameHandle.value
+                const url=`https://gender-api.com/get?name=${name}&key=JjwCTxafxxPaMLMzbA`
+                if(name.length==0)
+                {
+                    msgHandle.innerHTML='can not be blank'
+                }
+                else
+                {
+                    const xhr=new XMLHttpRequest()
+                    xhr.open('GET',url)
+                    xhr.send()
+                    xhr.onload=function()
+                    {
+                        msgHandle.innerHTML=''
+                       // subHandle.reset()
+                        const data=JSON.parse(xhr.responseText)
+                        console.log(data)
+                        if(data.hasOwnProperty('errmsg'))
+                        {
+                            msgHandle.innerHTML=data.errmsg
+                        }
+                        else{
+                            msgHandle.innerHTML=`Your gender is ${data.gender}`
+                        }  
+                    }
+                }
+            })
+        </script>
+    </body>
+</html>

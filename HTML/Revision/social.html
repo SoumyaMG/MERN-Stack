@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Social</title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script>
+
+const social=
+            [
+                {id:1, name:'facebook',url:'https://www.facebook.com'},
+                {id:2, name:'google',url:'https://www.google.com'},
+                {id:3, name:'instagram',url:'https://www.instagram.com'}
+            ]
+
+            const rootHandle=document.getElementById('root')
+            const ulTag=document.createElement('ul')
+
+            social.forEach(function(soc){
+                const liTag=document.createElement('li')
+                const aTag=document.createElement('a')
+                aTag.setAttribute('href',soc.url)
+               aTag.textContent=soc.name
+                liTag.appendChild(aTag)
+                ulTag.appendChild(liTag)
+            })
+
+            rootHandle.appendChild(ulTag)
+
+        </script>
+    </body>
+</html>

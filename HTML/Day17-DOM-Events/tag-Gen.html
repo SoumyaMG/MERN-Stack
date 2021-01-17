@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Hash Tag Generator</title>
+    </head>
+    <body>
+        <div id="root">
+                <h1 id="title">hello world</h1>
+                <button id="btn">HashTag</button>
+        </div>
+        <script>
+            const titleHandle=document.getElementById('title')
+            const btnHandle=document.getElementById('btn')
+            btnHandle.addEventListener('click',function()
+            {
+               const str= titleHandle.innerHTML
+               const str1=str.split(' ')
+               let hashTag='#'
+               str1.forEach(function(n)
+               {
+                   hashTag=hashTag+n.charAt(0).toUpperCase()+n.slice(1).toLowerCase()
+               })
+           
+               titleHandle.innerHTML=hashTag
+               
+            })
+
+        </script>
+    </body>
+</html>

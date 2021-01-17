@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>String UpperCase</title>
+    </head>
+    <body>
+        <div id="root">
+                <h1 id="title">hello world...!!</h1>
+                <button id="btn">Convert to UpperCase</button>
+        </div>
+        <script>
+            const titleHandle=document.getElementById('title')
+            const btnHandle=document.getElementById('btn')
+            // const btnHandle=document.getElementById('btnn')  // null- if you are accessing the id which is not present
+            btnHandle.addEventListener('click',function()
+            {
+                titleHandle.innerHTML=titleHandle.innerHTML.toUpperCase()
+                /*  let str=titleHandle.innerHTML
+                    titleHandle.innerHTML=str.toUpperCase()
+                    differnce between innerHTML and innerText
+                    titleHandle.innerHTML=`<em>${str}</em>`     // it will print the hello world in italic
+
+                     titleHandle.innerText=`<em>${str}</em>`     // it will print 
+                     <em>hello world</em>
+
+
+                */
+            })
+
+        </script>
+    </body>
+</html>

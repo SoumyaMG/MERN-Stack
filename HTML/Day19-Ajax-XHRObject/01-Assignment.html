@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Table View</title>
+    </head>
+    <body>
+        <div id='tableView'>
+
+        </div>
+        <script>
+            const xhr=new XMLHttpRequest()
+            xhr.open('GET','https://jsonplaceholder.typicode.com/users')
+            xhr.send()
+            xhr.onload=function()
+            {
+                const users=JSON.parse(xhr.responseText)
+
+                const divHandle=document.getElementById('tableView')
+                const tableTag=document.createElement('table')
+                tableTag.setAttribute('border',1)
+                const theadTag=document.createElement('thead')
+                const tbodyTag=document.createElement('tbody')
+                const trTag=document.createElement('tr')
+                const th1Tag=document.createElement('th')
+                const th2Tag=document.createElement('th')
+                const th3Tag=document.createElement('th')
+                const th4Tag=document.createElement('th')
+
+                th1Tag.textContent='id'
+                th2Tag.textContent='name'
+                th3Tag.textContent='email'
+                th4Tag.textContent='city'
+
+                trTag.appendChild(th1Tag)
+                trTag.appendChild(th2Tag)
+                trTag.appendChild(th3Tag)
+                trTag.appendChild(th4Tag)
+                theadTag.appendChild(trTag)
+                tableTag.appendChild(theadTag)
+                
+               users.forEach(function(n2)
+               {
+                   const arr=[n2.id,n2.name,n2.email,n2.address.city]
+                    const tr1Tag=document.createElement('tr')
+                    arr.forEach(function(n3)
+                    {
+                        const tdTag=document.createElement('td')
+                        tdTag.textContent=n3
+                        tr1Tag.appendChild(tdTag)
+                    })
+                    tbodyTag.appendChild(tr1Tag)
+               })
+               tableTag.appendChild(tbodyTag)
+
+               divHandle.appendChild(tableTag)
+
+            }
+        </script>
+    </body>
+</html>

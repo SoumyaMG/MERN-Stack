@@ -1,0 +1,54 @@
+
+<!--User MapQuest API-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Google Distance Metrix API</title>
+    </head>
+    <body>
+       <!--<form>
+            <lable>Source:<input type="text" id="source"/></lable><br/><br/>
+            
+            <lable>Destination:<input type="text" id="dest"/></lable><br/><br/>
+            <input type="submit"/>
+        </form>--> 
+        <h1 id="distance"></h1>
+        <script>
+            const distanceHandle=document.getElementById('distance')
+            const data={
+                    "destination_addresses": ["Mysuru, Karnataka, India"],
+                    "origin_addresses": ["Bengaluru, Karnataka, India"],
+                    "rows": [
+                        {
+                            "elements": [
+                                {
+                                    "distance": {
+                                        "text": "144 km",
+                                        "value": 144329
+                                    },
+                                    "duration": {
+                                        "text": "3 hours 10 mins",
+                                        "value": 11389
+                                    },
+                                    "duration_in_traffic": {
+                                        "text": "3 hours 22 mins",
+                                        "value": 12142
+                                    },
+                                    "status": "OK"
+                                }
+                            ]
+                        }
+                    ],
+                    "status": "OK"
+                }
+
+            const distance=data.rows[0].elements[0].distance.text
+            const duration=data.rows[0].elements[0].duration.text
+            const source=data.origin_addresses[0].split(',')[0]
+            const dest=data.destination_addresses[0].split(',')[0]
+
+            distanceHandle.innerHTML=`Distance Between ${source} and ${dest} is ${distance} and duration is ${duration}`
+
+        </script>
+    </body>
+</html>

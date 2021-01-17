@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM</title>
+    </head>
+    <body>
+        <div id='root'>
+            <!-- if you want to add a h1 tag here you can do that using html tag,, and the other way is to create h1 object in javascrtipt and we can dynamically assign the inner html value to it, by doing this we will be having controle over the tag-->
+            <!-- <h1> Hello World!!! </h1> -->
+        </div>
+        <script>
+            const rootHandle=document.getElementById('root')
+            const h1=document.createElement('h1')
+            console.log(typeof h1)  //object
+            console.log(h1)        //<h1></h1>
+            console.dir(h1) //      it will show all the key-value pairs of h1 object
+            console.log(rootHandle) // <div id="root">..</div>
+            h1.textContent='Hello World!!!'
+
+            rootHandle.appendChild(h1)
+
+        </script>
+    </body>
+</html>

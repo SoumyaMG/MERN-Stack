@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Cart Example</title>
+    </head>
+    <body>
+        <ul id="list">
+
+        </ul>
+        <p>Total:(<span id="total"></span>)=<span id="totalCost"></span></p>
+
+        <script>
+            let cartItem=[
+                    { id:1,name:'marker',price:10,qunty:10},
+                    { id:2,name:'Scale',price:5,qunty:2},
+                    { id:3,name:'Board',price:500,qunty:1}
+                ]
+            totalHandle=document.getElementById('total')
+            totalCostHandle=document.getElementById('totalCost')
+            ulHandle=document.getElementById('list')
+            function displayCount()
+            {
+                totalHandle.innerHTML=cartItem.length
+            }
+            displayCount()
+            let tCost=0
+            cartItem.forEach(function(n)
+            {
+                const liTag=document.createElement('li')
+                const btn=document.createElement('button')
+                btn.textContent='-'
+                const btn1=document.createElement('button')
+                btn1.textContent='+'
+                const btn2=document.createElement('button')
+                btn2.textContent='Remove'
+                const span1=document.createElement('span')
+                span1.textContent=n.qunty
+                const span2=document.createElement('span')
+                function cal(price,qunty)
+                {
+                    n.amount=n.price*n.qunty
+                    span2.textContent=` * ${n.price} =  ${n.amount}`
+                   
+                }
+                cal(n.price,n.qunty)
+                tCost=tCost+n.amount
+                liTag.textContent=n.name+' '
+                liTag.appendChild(btn)
+                liTag.appendChild(span1)
+                liTag.appendChild(btn1)
+                liTag.appendChild(span2)
+                liTag.appendChild(btn2)
+                
+                btn2.addEventListener('click',function()
+                {
+                    const confirmR=confirm('Are you sure?')
+                    if(confirmR)
+                    { ulHandle.removeChild(liTag)
+                            cartItem=cartItem.filter(function(n1)
+                            {
+                                return n1.id!=n.id
+                            })
+                            displayCount()
+                            
+                    }
+                })
+                btn.addEventListener('click',function()
+                {
+    
+                    if(n.qunty==1)
+                    {
+                        btn.disabled
+                    }
+                    else{
+                        n.qunty=n.qunty-1
+                    }
+                    span1.innerHTML=n.qunty
+                    cal(n.price,n.qunty)
+                    tCost=tCost-n.price
+                    totalCostHandle.innerHTML=tCost
+
+                })
+                btn1.addEventListener('click',function()
+                {
+                        n.qunty=n.qunty+1
+                    span1.innerHTML=n.qunty
+                    cal(n.price,n.qunty)
+                    tCost=tCost+n.price
+                    totalCostHandle.innerHTML=tCost
+                })
+                totalCostHandle.innerHTML=tCost
+                ulHandle.appendChild(liTag)
+            })
+        </script>
+    </body>
+</html>

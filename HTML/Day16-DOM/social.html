@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM</title>
+    </head>
+    <body>
+        <div id='root'>
+            
+        </div>
+        <script>
+            const rootHandle=document.getElementById('root')
+            const ulTag=document.createElement('ul')
+            const social=
+            [
+                {id:1, name:'facebook',url:'https://www.facebook.com'},
+                {id:2, name:'google',url:'https://www.google.com'},
+                {id:3, name:'instagram',url:'https://www.instagram.com'}
+            ]
+            function liMaker(text,name)
+            {
+                const liTag=document.createElement('li')
+                const aTag=document.createElement('a')
+                const href=document.createAttribute('href')   
+                href.value=text
+                aTag.setAttributeNode(href)
+                //(23,24 and 25)this can be done in a single line, aTag.setAttribute('href',text)
+                aTag.setAttribute('target','_blank') ///every time to open in new page
+                aTag.textContent=name
+                liTag.appendChild(aTag)
+                ulTag.appendChild(liTag)
+            }
+
+            social.forEach(function (obj)
+            {
+                liMaker(obj.url,obj.name)
+            })
+            rootHandle.appendChild(ulTag)
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+

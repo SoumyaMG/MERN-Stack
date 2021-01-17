@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>
+        Form Event Handler
+    </title>
+</head>
+
+<body>
+    <div id="root">
+        <h2>Login</h2>
+        <form>
+            <lable>Email::<input type="text" id="email" /></lable> <br /><br />
+            <lable>Password::<input type="password" id="pwd" /></lable>
+            <span id="pwdError"></span><br /><br />
+            <lable>Show password<input type="checkbox" id="show" /></lable> <br />
+            <lable><input type="submit" />
+            </lable>
+        </form>
+    </div>
+    <script>
+        const emailHandle = document.getElementById('email')
+        const pwdHandle = document.getElementById('pwd')
+        const spanHandle = document.getElementById('pwdError')
+        const showHandle = document.getElementById('show')
+
+        emailHandle.addEventListener('focus', function () {
+            console.log('you are inside email field')
+        })
+
+
+        emailHandle.addEventListener('blur', function () {
+            console.log('you are outside email field')
+        })
+
+
+        showHandle.addEventListener('click', function () {
+            if (showHandle.checked) {
+                pwdHandle.setAttribute('type', 'text')
+            }
+            else {
+                pwdHandle.setAttribute('type', 'password')
+            }
+        })
+
+
+        pwdHandle.addEventListener('focus', function () {
+            spanHandle.innerHTML = 'required,must be more than 8 char'
+        })
+
+
+        pwdHandle.addEventListener('blur', function () {
+            const userPassword = pwdHandle.nodeValue
+            if (userPassword == 0) {
+                spanHandle.innerHTML = 'can not be blank'
+            }
+            else if (userPassword < 8) {
+                spanHandle.innerHTML = 'must be more than 8 char'
+            }
+        })
+
+    </script>
+</body>
+
+</html>
