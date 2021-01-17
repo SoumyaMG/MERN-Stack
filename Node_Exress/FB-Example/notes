@@ -1,0 +1,55 @@
+customer-
+    _id
+    name- String -required
+    email-String -required-validate format
+    mobile- String -required-maxlength-10-number
+    createdAt-Date , default Date.now()
+
+Department-
+    _id
+    name-String -required
+    createdAt-Date , default Date.now()
+
+Employee-
+    _id
+    name-String -required
+    email -String -required-validate format
+    mobile - String -required-maxlength-10-number
+    department -Schema.Types.ObjectId
+    createdAt- Date , default Date.now()
+
+Ticket-
+    _id
+    customer-Schema.Types.ObjectId
+    message-String
+    preority- String
+    department-Schema.Types.ObjectId
+    employee-Schema.Types.ObjectId
+    ticketCode-String
+    isCompleted-Boolean, default false
+    createdAt- Date , default Date.now()
+
+article-
+_id
+name-String required
+author-Schema.Types.ObjectId
+category-Schema.Types.ObjectId
+comments-Schema.Types.ObjectId
+createdAt-Date , default Date.now()
+
+author-
+_id
+name-String-required
+createdAt-Date , default Date.now()
+
+category-
+_id
+name-String-required
+createdAt-Date , default Date.now()
+
+comments-
+_id
+article-Schema.Types.ObjectId
+body-String
+createdAt-Date , default Date.now()
+
