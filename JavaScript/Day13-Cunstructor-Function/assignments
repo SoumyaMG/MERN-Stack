@@ -1,0 +1,19 @@
+HashTagGenerator
+
+    //prop-str
+    //method-genarateTag()
+
+const tag=new HashTagGenerator('Hello world')
+console.log(tag.genarateTag())// '#HelloWorld
+
+
+
+NumberFilter
+    //prop- values
+    //method -getEvens(),getOdds(),ascending(),descending()
+
+    const nf=new NumberFilter([5,15,10,20,25,30])
+    nf.getEvens()
+    nf.getOdds()
+    nf.ascending()
+    nf.descending()

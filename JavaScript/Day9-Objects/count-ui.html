@@ -1,0 +1,66 @@
+<httm>
+    <head>
+        <title>Count UI</title>
+    </head>
+    <body>
+        <h1 id="output">0</h1>
+        <button id="upbtn">Up</button>
+        <button id="downbtn">Down</button>
+        <button id="resetbtn">Reset</button>
+    </body>
+    <script>
+         const onHandle=document.getElementById('output')
+         const upHandle=document.getElementById('upbtn')
+         const downHandle=document.getElementById('downbtn')
+         const resetHandle=document.getElementById('resetbtn')
+const counter=
+{
+   
+    count:0,
+    //To get the count value
+    getValue:function()
+    {
+        return this.count
+    },
+    //To increment the count by 1
+    up:function()
+    {
+        this.count=this.count+1
+    },
+
+    //To increment the count by 1
+    down:function()
+    {
+        this.count=this.count-1
+    },
+    //To reset the count value
+    reset:function()
+    {
+        this.count=0
+    },
+
+    // To increment the coounter by certain value
+    upBy:function(n)
+    {
+        this.count=this.count+5
+    }
+}
+
+    onHandle.innerHTML=counter.getValue()
+    upHandle.addEventListener('click',function()
+    {
+        counter.up()
+        onHandle.innerHTML=counter.getValue()
+    })
+    downHandle.addEventListener('click',function()
+    {
+        counter.down()
+        onHandle.innerHTML=counter.getValue()
+    })
+    resetHandle.addEventListener('click',function()
+    {
+        counter.reset()
+        onHandle.innerHTML=counter.getValue()
+    })
+    </script>
+</httm>

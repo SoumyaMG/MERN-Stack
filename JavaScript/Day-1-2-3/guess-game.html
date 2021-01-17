@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <title>Guess-Number</title>
+</head>
+
+<body>
+    <script>
+        // targetNumber  (camel casing -- variables,function names for c style programing laguages)
+        // TargetNumber  (pascle casing -- classes)
+        // target_number  (snake casing -- python , ruby)
+        //  target-number (kabab casing)
+        var name = prompt('Enter your name');
+        console.log('Hi', name, 'Start your Guesses');
+        var targetNumber = Math.round(Math.random() * 100);
+
+        var maxGuess = 10;
+        for (var i = 1; i <= maxGuess; i++) {
+            var playerGuess = prompt("Enter a guess number");
+            console.log(playerGuess);
+            if (playerGuess < targetNumber) {
+                console.log('Oops!! your Guess is low!!')
+            }
+            else if (playerGuess > targetNumber) {
+                console.log('Oops!! your Guess is high!!')
+            }
+            else {
+                console.log('Good Job you guessed my number!!')
+                console.log('You Guesses at GuessCount', i)
+                break;
+            }
+        }
+        console.log('outside loop!!!');
+        if (i == maxGuess) {
+            console.log('Sorry you did\'t guess my number my number was', targetNumber);
+        }
+    </script>
+</body>
+
+</html>
