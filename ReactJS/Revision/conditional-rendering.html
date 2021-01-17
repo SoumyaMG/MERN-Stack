@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>C-R</title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+        <script type="text/babel">
+                    const rootHandle=document.getElementById('root')
+                    const numbers=[10,12,15,20,27,80]
+
+                    const ele=(
+                        <ul>
+                            {
+                                numbers.map(function(number){
+                                    if(number%2==0)
+                                    {
+                                        return <li>{number}</li>
+                                    }
+                                })
+                            }
+                        </ul>
+                    )
+
+                    ReactDOM.render(ele,rootHandle)
+        </script>
+    </body>
+</html>

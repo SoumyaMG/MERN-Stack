@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React List</title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+            <script type=text/babel>
+                /*
+                    When we are using the react to create nested tags like 
+                    <ul><li><a href="abc.com" target="_blank">Apple</a></li><li>Mango</li></ul>
+
+                    const rootHandle=document.getElementById('root')
+                const ele=React.createElement('ul',{},
+                            React.createElement('li',{},
+                                React.createElement('a',{href:'https://www.google.com',target:'_blank'},'Apple')),
+                            React.createElement('li',{},'Mango'))
+                ReactDOM.render(ele,rootHandle)
+
+                buyt it looks complex than the venella javascript.
+                So facebook introduced a concept called JSX- JavaScript XML,
+                it looks like html tags but those are not hjtml tags , they are called as JSX objects. JSX format is not understood by React , so we use babel library to convert jsx to react js code.
+                */
+               //the above example can be achived using jsx in a very simpler way
+               let myFvt='Mango'
+               const rootHandle=document.getElementById('root')
+               const ele=(
+                <ul>
+                <li><a href="http://www.wikipedia.com" target="_blank">Apple</a></li> 
+                <li>{myFvt.toUpperCase()}</li> 
+            </ul>
+               )
+            ReactDOM.render(ele,rootHandle)
+
+            </script>
+    </body>
+</html>

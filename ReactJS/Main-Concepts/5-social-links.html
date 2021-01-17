@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+        </div>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+            <script type="text/babel">
+            const rootHandle=document.getElementById("root")
+
+            const links=[
+                {id:1,name:'facebook',url:'https://www.facebook.com'},
+                {id:2,name:'google',url:'https://www.google.com'},
+                {id:3,name:'instagram',url:'https://www.instagram.com'}
+            ]
+            
+            const ele=
+            (
+                <div>
+                    <h2>Links--{links.length}</h2>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                                <th>URL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {/*the below code will through a warding because whenever you are looping it required a unique key for your value, so we use ids for that 
+                        
+                            {links.map(function(link)
+                               {
+                                return (
+                                    <tr>
+                                        <td>{link.id}</td>
+                                        <td>{link.name}</td>
+                                        <td><a href={link.url} target="_blank">{link.url}</a></td>
+                                    </tr> 
+                                )
+                               } 
+                            )}*/      
+                        }
+
+                        {links.map(function(link)
+                               {
+                                return (
+                                    <tr key={link.id}>
+                                        <td>{link.id}</td>
+                                        <td>{link.name}</td>
+                                        <td><a href={link.url} target="_blank">{link.url}</a></td>
+                                    </tr> 
+                                )
+                               } 
+                            )}      
+                                      
+                        </tbody>
+                    </table>
+                </div>
+            )
+
+            ReactDOM.render(ele,rootHandle)
+            </script>
+    </body>
+</html>

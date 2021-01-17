@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Functional Component
+        </title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+        <script type="text/babel">
+
+            const rootHandle=document.getElementById('root')
+
+            const products=[
+                {id:1,name:'marker',price:15},
+                {id:2,name:'pencil',price:10},
+                {id:3,name:'scale',price:10}
+            ]
+
+            function ProductItem(props){
+                console.log(props)
+                return (
+                    <div>
+                        <h2>{props.name}</h2>
+                        <p>price -{props.price}</p>
+                        <hr/>
+                    </div>
+                )
+            }
+
+            const ele=(
+                <div>
+                    {products.map(function(product,i){
+                        return <ProductItem key={i}
+                                    name={product.name}
+                                    price={product.price}/>
+                    })}
+                </div>
+            )
+
+            ReactDOM.render(ele,rootHandle)
+        </script>
+    </body>
+</html>

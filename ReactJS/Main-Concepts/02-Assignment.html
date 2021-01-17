@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="root">
+    </div>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+    <script type="text/babel">
+            const rootHandle=document.getElementById("root")
+
+            class FormAssign extends React.Component
+            {
+                constructor(props)
+                {
+                    super(props)
+                    this.state=
+                    {
+
+                    }
+                }
+
+                render()
+                {
+                    return (
+                        <div>
+
+                            <fieldset>
+                                <legend><h2>A.Personal Information</h2></legend>
+                                <lable>Name : <input type="text" name="name"/></lable> <br/> <br/>
+                                <lable>Date Of Birth : <input type="date" name="date" /></lable>   <br/><br/>
+                                Interest:
+                                <lable><input type="checkbox" name="surfing" checked />Surfing the Web</lable>  
+                                <lable><input type="checkbox" name="Reading"/>Reading Books</lable>   <br/><br/>
+                                <lable>Email : <input type="email" name="email"/></lable>    <br/><br/>
+                                Country : 
+                                <select >
+                                    <option>Select </option>
+                                    <option>India</option>
+                                    <option>America</option>
+                                    <option>Philippenes</option>
+                                </select>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend><h2>B. Rate Our Website</h2></legend>
+                                <lable><input type="radio" name="rate" checked/>It's Great!!</lable>
+                                <lable><input type="radio" name="rate"/>It's Good!!</lable>
+                                <lable><input type="radio" name="rate"/>It's Fair!!</lable>
+                                <lable><input type="radio" name="rate"/>It's Poor!!</lable>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend><h2>B. Rate Our Website</h2></legend>
+                                <lable><input type="radio" name="rate" checked/>It's Great!!</lable>
+                                <lable><input type="radio" name="rate"/>It's Good!!</lable>
+                                <lable><input type="radio" name="rate"/>It's Fair!!</lable>
+                                <lable><input type="radio" name="rate"/>It's Poor!!</lable>
+                            </fieldset>
+
+                            <fieldset>
+                                <legend><h2>C. Give Us Your Inputs To Further Improve Our Website</h2></legend>
+                                <textarea type="text" cols="50" rows="10"></textarea>
+                            </fieldset>
+
+                        </div>
+                    )
+                }
+
+            }
+
+            ReactDOM.render(<FormAssign />,rootHandle)
+            </script>
+</body>
+
+</html>

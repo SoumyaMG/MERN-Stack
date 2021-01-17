@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+        </div>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+            <script type="text/babel">
+            const rootHandle=document.getElementById("root")
+            const fruits=['apple','mango','banana']
+
+            const ele=(
+                <div>
+                    <h1>List Fruits--{fruits.length}</h1>
+                    <ul>
+                        {fruits.map(function(fruit,index){
+                            return <li key={index}>{fruit}</li>
+                            })
+                        }
+                    </ul>
+                    <h1>Fruits In Table</h1>
+                    <table border="1">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                           {fruits.map(function(fruit,index)
+                           {
+                               return (
+                                   <tr key={index}>
+                                    <td>{fruit}</td>
+                                   </tr>
+                               )
+                           })}
+                        </tbody>
+                    </table>
+                </div>
+            )
+            ReactDOM.render(ele,rootHandle)
+            </script>
+    </body>
+</html>

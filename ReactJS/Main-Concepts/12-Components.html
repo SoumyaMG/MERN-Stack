@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="root">
+    </div>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+    <script type="text/babel">
+            const rootHandle=document.getElementById("root")
+            const products=[{id:1,name:"scale",price:15,features:['f1','f2'],rating:5.4},
+                            {id:2,name:"Marcker",price:50,features:['f3','f2'],rating:5},
+                            {id:3,name:"Board",price:40,features:['f1','f2','f3'],rating:3}]
+
+            function ProductItem(props)
+            {
+                return (
+                    <div>
+                        <h2>Name-{props.name}</h2>
+                        <p>Price-{props.price}</p>
+                        <ul>
+                          {
+                              props.features.map(function(feature,index)
+                            {
+                                return <li key={index}>{feature}</li>
+                            })
+                          }  
+                        </ul>
+                        <p>Ratings-{props.rating}</p>
+                        <hr/>
+                    </div>
+                )
+            }
+
+            const ele=
+            (
+                <div>
+                <h2>Listing ProductItems-{products.length}</h2>
+                    {products.map(function(product)
+                    {
+                        return <ProductItem key={product.id} name={product.name} 
+                                            price={product.price} 
+                                            features={product.features} 
+                                            rating={product.rating}   />     
+                    })}
+                </div>
+            )
+
+            ReactDOM.render(ele,rootHandle)
+            </script>
+</body>
+
+</html>

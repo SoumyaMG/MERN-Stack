@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="root">
+    </div>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+    <script type="text/babel">
+            const rootHandle=document.getElementById("root")
+            class Counter extends React.Component
+            {
+                constructor(props)
+                {
+                    console.log('this is consrtuctor')
+                    super(props)
+                    this.state=
+                    {
+                        count:props.count
+                    }    
+                    this.handleDown=this.handleDown.bind(this) 
+                    this.handleRandom=this.handleRandom.bind(this)
+                }
+
+                //bind this while we are calling the function
+                handleUp()
+                    {
+                        console.log('handle up is called')
+                        this.setState((prevState)=>
+                        {
+                            //console.log('inside setstate')
+                            return {
+                                count:prevState.count+1
+                            }
+                        })
+                    }
+
+                    //Bind this using constructor
+                    handleDown()
+                    {
+                        console.log('handle up is called')
+                        this.setState((prevState)=>
+                        {
+                           // console.log('inside setstate')
+                            return {
+                                count:prevState.count-1
+                            }
+                        })
+                    }
+
+                    //need not bind as we are using a arrow function
+                    handleReset=()=>{
+                        this.setState((prevState)=>
+                        {
+                           // console.log('inside setstate')
+                            return {
+                                count:0
+                            }
+                        })
+                    }
+
+                    //need not bind as we are using a arrow function
+                    handleRandom(n)
+                    {
+                     this.setState((prevState)=>
+                        {
+                           // console.log('inside setstate')
+                            return {
+                                count:prevState.count+n
+                            }
+                        })   
+                    }
+
+                render()
+                {
+                    return (<div>
+                        <h2>Count - {this.state.count}</h2>
+                        <button onClick={this.handleUp.bind(this)}>up</button>
+                        <button onClick={this.handleDown} disabled={this.state.count==0}>down</button>
+                        <button onClick={()=>
+                        {
+                            this.setState((prevState)=>
+                            {
+                                return {
+                                    count:prevState.count+2
+                                }
+                            })
+                        }}>upBy2</button>
+                        <button onClick={this.handleReset}>reset</button>
+                        <button onClick={()=>
+                            {
+                                //when we want to pass arguments to our event handlers we use inline function
+                                this.handleRandom(10)
+                            }}>random</button>
+                    </div>)
+                }
+            }
+
+            const ele=
+            (
+                <Counter name="counter Machine" count={0}/>
+            )
+            ReactDOM.render(ele,rootHandle)
+            </script>
+</body>
+
+</html>

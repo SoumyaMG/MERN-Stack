@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="root">
+    </div>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+    <script type="text/babel">
+            const rootHandle=document.getElementById("root")
+            class Counter extends React.Component
+            {
+                constructor(props)
+                {
+                    console.log('this is consrtuctor')
+                    super(props)
+                    this.state=
+                    {
+                        count:props.count
+                    }     
+                }
+
+                handleUp()
+                    {
+                        console.log('handle up is called')
+                        this.setState((prevState)=>
+                        {
+                            console.log('inside setstate')
+                            return {
+                                count:prevState.count+1
+                            }
+                        })
+                    }
+
+                render()
+                {
+                    return (<div>
+                        <h2>Count - {this.state.count}</h2>
+                        <button onClick={this.handleUp.bind(this)}>up</button>
+                    </div>)
+                }
+            }
+
+            const ele=
+            (
+                <Counter name="counter Machine" count={0}/>
+            )
+            ReactDOM.render(ele,rootHandle)
+            </script>
+</body>
+
+</html>

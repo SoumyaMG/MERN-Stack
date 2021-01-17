@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>C-R</title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+        <script type="text/babel">
+
+        const rootHandle=document.getElementById('root')
+
+        class StudentForm extends React.Component
+        {
+            constructor(props)
+            {
+                super(props)
+                this.state={
+                    name:'',
+                    city:''
+                }
+                this.handleSubmit=this.handleSubmit.bind(this)
+                this.handleNameChange=this.handleNameChange.bind(this)
+                this.handleCityChange=this.handleCityChange.bind(this)
+            }
+
+            handleSubmit(e)
+            {
+                e.preventDefault()
+                
+                const formData={
+                    name:this.state.name,
+                    city:this.state.city
+                }
+
+                console.log(this.state)
+                console.log(formData)
+
+                this.setState(()=>({
+                    name:'',
+                    city:''
+                }))
+            }
+
+            handleNameChange(e)
+            {
+                const name=e.target.value
+                this.setState(()=>({name}))
+            }
+
+            handleCityChange(e)
+            {
+                const city=e.target.value
+                this.setState(()=>({city}))
+            }
+
+            render()
+            {
+                return (
+                    <div>
+                        <h1>Add Student</h1>
+                        <form onSubmit={this.handleSubmit}>
+                            <label>Name:
+                                <input type="text" value={this.state.name} onChange={this.handleNameChange}/>
+                            </label><br/><br/>
+                            <label>City:
+                                <input type="text" value={this.state.city} onChange={this.handleCityChange}/>
+                            </label><br/><br/>
+                                <input type="submit" />
+                        </form>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<StudentForm />,rootHandle)
+        </script>
+    </body>
+</html>

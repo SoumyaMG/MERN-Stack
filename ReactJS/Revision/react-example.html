@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hello React</title>
+    </head>
+    <body>
+        <div id="root">
+
+        </div>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+        
+        <script>
+            // Using the venella Javascript
+
+            const rootHandle=document.getElementById('root')
+            //const h1=document.createElement('h1')
+            //h1.textContent='Hello React'
+            //h1.setAttribute('id','heading')
+            //rootHandle.appendChild(h1)
+
+            //Using the React Js
+            const ele=React.createElement('h1',{id:'heading'},'Hello React')
+            ReactDOM.render(ele,rootHandle)
+        </script>
+        </body>
+    </html>
+    
+    

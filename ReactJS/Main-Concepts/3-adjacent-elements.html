@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <div id="root">
+        </div>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+        <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+            <script type="text/babel">
+            const rootHandle=document.getElementById("root")
+            /*
+                const ele=<h1>Hello</h1><p>World</p>
+                this one will throw an error-->
+                    Inline Babel script: Adjacent JSX elements must be wrapped in an enclosing tag 
+                So, we have to enclose them in a tag
+            */
+            const ele=(
+                <div>
+                    {/*
+                        <h1>Hello
+                        <h1>Hello<h1>
+
+                        for the above, it will through an error-->
+                            Inline Babel script: Unterminated JSX contents    
+                    */}
+                    <h1>Hello</h1>
+                    <p>World</p>
+                </div>
+                )
+            ReactDOM.render(ele,rootHandle)
+            </script>
+    </body>
+</html>

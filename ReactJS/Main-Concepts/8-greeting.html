@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="root">
+    </div>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+    <script type="text/babel">
+            const rootHandle=document.getElementById("root")
+            const date=new Date()
+            const hour=date.getHours()
+
+            const ele=<p>{hour<=12?'Hello Good Morning':'Hello Good Afternoon'}</p>
+            ReactDOM.render(ele,rootHandle)
+            </script>
+</body>
+
+</html>

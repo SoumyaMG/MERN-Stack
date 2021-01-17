@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div id="root">
+    </div>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/react-dom.development.js"></script>
+    <script src="C:/Users/sgidd/Desktop/MERN_STACK/ReactJS/js/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')
+        // component in React - functional component
+        function Hotel(props) {
+            console.log(props)
+            return (
+                <div>
+                    <h2> { props.name } </h2>
+                    <p> { props.description} </p>
+                    <p> { props.cuisines.join(', ') }</p>
+                    <p> rating - { props.rating ? props.rating : 'N/A' } </p>
+                    { props.city && <p> city - { props.city } </p>}
+                </div>
+            )
+        }
+      
+        const ele = (
+            <div>
+                <Hotel 
+                    name="truffles" 
+                    description="sandwiches" 
+                    city="bangalore" 
+                    rating="4.6" 
+                    cuisines={['american', 'mexcian', 'english']} 
+                />
+
+                <Hotel 
+                    name="slv" 
+                    description="south indian"  
+                    cuisines={['north indian', 'south indian', 'chineses', 'chats']}
+                    />
+
+                <Hotel 
+                    name="slv" 
+                    description="south indian"  
+                    cuisines={['chinese','indian']}
+                    />
+
+            </div>
+        )
+
+
+        ReactDOM.render(ele, rootHandle)
+    </script>
+</body>
+
+</html>
